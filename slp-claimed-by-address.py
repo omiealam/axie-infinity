@@ -45,6 +45,6 @@ final.to_csv('/data/amount-received/slp-claims/total-claims-non-unique-address.c
 # Step 4: Group total claims by address
 
 df = pd.read_csv('/data/omar-thesis/amount-received/slp-claims/total-claims-unique-address.csv.gz', low_memory=False, usecols=['raw_log_topics_2', 'raw_log_data'])
-df = df.raw_log_topics_2.groupby(df[raw_log_data]).nunique()  # Group by address (summing amounts)
+df = df.raw_log_topics_2.groupby(df['raw_log_data']).nunique()  # Group by address (summing amounts)
 
 df.to_csv('/data/amount-received/slp-claims/total-claims-unique-address.csv')  # Export to CSV
